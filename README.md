@@ -2,7 +2,7 @@
 
 - 首先下载1.5g内存u-boot的bin文件：[1.5gb内存u-boot的bin文件](https://github.com/leeboby/opizero3-uboot-kernel/blob/main/u-boot-sunxi-with-spl-opizero3-1.5gb.bin)
 - 然后将烧录好opizero3 linux6.x系统的tf卡插入其他的linux机器中
-- 然后使用sudo fdisk -l命令查看tf卡的设备名: 比如: /dev/sdX
+- 然后使用 ```sudo fdisk -l | grep -i disk``` 命令查看tf卡的设备名: 比如: /dev/sdX
 - 然后使用下面的命令将u-boot的bin文件更新到tf中
 ```
 sudo dd bs=1k seek=8 if=u-boot-sunxi-with-spl-opizero3-1.5gb.bin of=/dev/sdX
@@ -23,4 +23,8 @@ sudo cp sun50i-h616-orangepi-zero3-4gb.dtb /mnt/boot/dtb/allwinner/sun50i-h616-o
 ```
 sudo dd bs=1k seek=8 if=u-boot-sunxi-with-spl-opizero3-4gb.bin of=/dev/sdX
 ```
-
+# 无法启动
+```
+# 末尾不要加上数字，像这样是错误的！
+# sudo dd bs=1k seek=8 if=u-boot-sunxi-with-spl.bin of=/dev/sdX1
+```
